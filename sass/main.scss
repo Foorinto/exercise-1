@@ -1,0 +1,129 @@
+html,body{
+	font-family: Arial, Helvetica, Sans-serif;
+	padding: 0px;
+	margin: 0px;
+	font-size: 1em;
+	width: 100%;
+}
+
+ul {
+    &.horizontal {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        padding: 0 40px;
+        background-color: black;
+        color: white;
+    }
+
+    li {
+        list-style-type: none;
+        padding: 0;
+
+        &:hover {
+            background-color: rgb(32, 32, 32);
+        }
+
+        &:first-child {
+            span {
+                &.first-level {
+                    padding-left: 0;
+                }
+            }
+
+            a {
+                padding: 15px 40px;
+            }
+        }
+
+        &.with_child {
+            position: relative;
+
+            &.with-arrow {
+                span {
+                    &:after {
+                        content: "›";
+                        position: absolute;
+                        margin-left: 15px;
+                        top: 15px;
+                        pointer-events: none;
+                    }
+    
+                    &.first-level {
+                        &:after {
+                            transform: rotate(90deg);
+                            top: 15px;
+                        }
+                    }
+                }
+            }
+
+            .no-arrow {
+                span {
+                    &:after {
+                        display: none;
+                    }
+                }
+            }
+
+            span {
+                cursor: pointer;
+                display: block;
+
+                & +  ul {
+                    display: none;
+                    padding: 0;
+                    background-color: rgb(15, 15, 15);
+    
+                    &.open {
+                        display: block;
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        min-width: 300px;
+                        transform: translateX(100%);
+                    }
+
+                    li {
+                        padding: 0;
+                    }
+                }
+
+                &.first-level {
+                    & +  ul {        
+                        &.open {
+                            display: block;
+                            position: absolute;
+                            bottom: 0;
+                            top: auto;
+                            left: 0;
+                            min-width: 300px;
+                            transform: translateY(100%);
+                        }
+                    }
+                }
+
+
+            }
+        }
+
+        a {
+            color: white;
+            text-decoration: none;
+        }
+
+        span {
+            display: inline-block;
+            padding: 15px 40px;
+
+            &.first-level {
+                padding: 15px 50px 15px 40px;
+            }
+        }
+
+        img {
+            width: 10px;
+            margin-right: 10px;
+        }
+    }
+}

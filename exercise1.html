@@ -1,0 +1,158 @@
+<html>
+	<head>
+		<link href="assets/css/main.min.css" rel="stylesheet" type="text/css"><link>
+		<script src="assets/js/app.min.js" type="text/javascript"></script>
+	</head>
+	<body>
+		<nav id="mainNav"></nav>
+
+		<script>
+
+		const menu = new Menu({
+			subMenuArrows: true,
+		});
+
+		//
+		// Home menu
+		//
+		const home = new MenuItem({
+			label: "Home",
+			href: "http://www.invalid-domain.com/invalid-link",
+		});
+		menu.add(home);
+		//
+		// END - Home menu
+		//
+
+		// //
+		// // File menu
+		// //
+		const fileMenu = new MenuItem({ label: "File" });
+		fileMenu.add(new MenuItem({
+			label: "New",
+			click: () => {
+				alert("New");
+			},
+			icon: new Icon("./img/pacman.png"),
+		}));
+		fileMenu.add(new MenuItem({
+			label: "Open",
+			click: () => {
+				alert("Open");
+			},
+			icon: new Icon("./img/ghost.png"),
+		}));
+		fileMenu.add(new MenuItem({
+			label: "Save",
+			click: () => {
+				alert("Save");
+			},
+			icon: new Icon("./img/ghost.png"),
+		}));
+		menu.add(fileMenu);
+		// //
+		// // END - File menu
+		// //
+
+		//
+		// Edit menu
+		//
+		const editMenu = new MenuItem({ label: "Edit" });
+		editMenu.add(new MenuItem({
+			label: "Cut",
+			click: () => {
+				alert("Cut");
+			},
+		}));
+		editMenu.add(new MenuItem({
+			label: "Copy",
+			click: () => {
+				alert("Copy");
+			},
+		}));
+		editMenu.add(new MenuItem({
+			label: "Paste",
+			click: () => {
+				alert("Paste");
+			},
+		}));
+
+		const searchAndFindMenu = new MenuItem({ label: "Search and find" });
+		searchAndFindMenu.add(new MenuItem({
+			label: "Find",
+			click: () => {
+				alert("Find");
+			},
+		}));
+		searchAndFindMenu.add(new MenuItem({
+			label: "Find and replace",
+			click: () => {
+				alert("Find and replace");
+			},
+		}));
+		searchAndFindMenu.add(new MenuItem({
+			label: "Find and replace all",
+			click: () => {
+				alert("Find and replace all");
+			},
+		}));
+
+		const moreSearchAndFindMenu = new MenuItem({ label: "Deeper search??" });
+		moreSearchAndFindMenu.add(new MenuItem({
+			label: "Find deeper",
+			click: () => {
+				alert("Find deeper");
+			},
+		}));
+		moreSearchAndFindMenu.add(new MenuItem({
+			label: "Find and replace deeper",
+			click: () => {
+				alert("Find and replace deeper");
+			},
+		}));
+
+		searchAndFindMenu.add(moreSearchAndFindMenu);
+		editMenu.add(searchAndFindMenu);
+		menu.add(editMenu);
+		//
+		// END - Edit menu
+		//
+
+
+
+		//
+		// Help menu
+		//
+		const helpMenu = new MenuItem({ label: "Help" });
+		helpMenu.add(new MenuItem({
+			label: "Help someone",
+			click: () => {
+				alert("Help someone");
+			},
+			icon: new Icon("./img/pacman.png"),
+		}));
+		helpMenu.add(new MenuItem({
+			label: "Help everyone",
+			click: () => {
+				alert("Help everyone");
+			},
+			icon: new Icon("./img/ghost.png"),
+		}));
+		helpMenu.add(new MenuItem({
+			label: "About",
+			click: () => {
+				alert("About");
+			},
+			icon: new Icon("./img/ghost.png"),
+		}));
+		menu.add(helpMenu);
+		//
+		// END - Help menu
+		//
+
+
+		// attach menu to body
+		menu.appendTo(document.querySelector("#mainNav"));
+		</script>
+	</body>
+</html>

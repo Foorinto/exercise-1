@@ -125,9 +125,8 @@ class Menu {
  * @param {Array} children List menu of children.
  */
 
-class MenuItem extends Menu {
+class MenuItem {
 	constructor (options = {}) {
-		super();
 		this.label = options.label;
 		this.icon = options.icon ? options.icon : "";
 		this.href = options.href ? options.href : "";

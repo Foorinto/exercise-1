@@ -4,7 +4,6 @@
  * @param {boolean} subMenuArrows Add arrows to submenu.
  * @param {array} children List menu of children.
  * @param {boolean} isActive State of the menu.
- * @param parentUL Dom Element parent of the menu.
  */
 
 class Menu {
@@ -12,9 +11,6 @@ class Menu {
 		this.subMenuArrows = options.subMenuArrows;
 		this.children = [];
 		this.isActive = false;
-		this.parentUL = document.createElement("ul");
-		let classesMenu = ['menu', 'horizontal', 'ltr'];
-		this.parentUL.classList.add(...classesMenu);
 	}
 
 	// Add a child to the menu
@@ -24,11 +20,15 @@ class Menu {
 
 	// Creation of the menu
 	createTree(children) {	
+		let ul = document.createElement("ul");
+		let classesMenu = ['menu', 'horizontal', 'ltr'];
+		ul.classList.add(...classesMenu);
+
 		for (let child of children) {
-			this.parentUL.appendChild(child.createElementItem(this.subMenuArrows));
+			ul.appendChild(child.createElementItem(this.subMenuArrows));
 		}
 
-		return this.parentUL;
+		return ul;
 	}
 
 	// Change class name (state hover) of the menu item
